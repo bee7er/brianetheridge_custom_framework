@@ -1,0 +1,30 @@
+
+Documentation: http://lesscss.org/
+
+Making changes to the CSS.
+
+do NOT edit the .css file!!
+
+
+Option 1 (recommended)
+
+Download this: http://wearekiss.com/simpless
+Just drag and drop your entire dev folder into it, and remember to have the app open when you make LESS changes.
+
+As you save your .less files it compiles them all for you on the fly, you dont have to worry about a thing.
+
+Commit the CSS and LESS files.
+
+
+
+Option 2 (some things might not work this way!)
+
+replace this line: 
+<link rel="stylesheet" href="assets/less/style.css">
+
+with 
+<link rel="stylesheet/less" href="assets/less/style.less">
+<script src="assets/js/libs/less-1.3.0.min.js"></script> 
+
+This will use the javascript to compile the CSS. 
+Not all features are supported though so it could be troublesome. 

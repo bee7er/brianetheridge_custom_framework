@@ -1,0 +1,23 @@
+# php_value session.cookie_httponly TRUE
+# options the .htaccess files in directories can override.
+	# Edit apache/conf/httpd.conf to AllowOverride in .htaccess
+	# AllowOverride AuthConfig
+
+# Stop the directory list from being shown
+#  Options -Indexes
+
+# Controls who can get stuff from this server.
+#  Order Deny,Allow
+#  Allow from all
+# Allow from localhost
+
+# RewriteCond $1 !^(controller\.php|xmls|images|forum|scorm|blog|uploads|pdf|themes|css|js|docs)
+
+# RewriteRule:Redirect all requests to index.php
+# RewriteRule ^([A-Za-z0-9/]+)$ index\.php/$1 [NC,L]
+# Rewrite rule for live server
+RewriteEngine On
+#RewriteBase /
+RewriteBase /brianetheridge/
+RewriteRule ^([A-Za-z0-9_/]+)$ index.php [NC,L]
+#RewriteRule ^([A-Za-z0-9_/]+)$ index.php/$1 [NC,L]

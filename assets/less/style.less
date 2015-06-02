@@ -1,0 +1,553 @@
+@import "normalize.less";
+
+/* ===== Primary Styles ========================================================
+   Author:
+   ========================================================================== */
+/* Variables */
+@black:#333;
+@white:#ffffff;
+@grey:#d7d7d7;
+@blueBase:#0593ce;
+@blue:#0593ce;
+@turqBase:#1b85af;
+@turq:#a4a4a4;
+@pastelblue:#3D57FF;
+@pink:#800000;
+@red:#c40000;
+@defaultRadius:5px;
+
+/* Mixins, start with capital */
+.RightArrowWhite(@position:center right, @padding: 15px){
+	background: url('../images/arrowRightWhite.png') no-repeat @position;
+	padding-right: @padding;
+}
+.TurqGradient {
+	.gradient(@turq, darken(@turq,10%), @turq);
+}
+.TurqRIGradient {
+	.gradient(@white, darken(@white,10%), @white);
+}
+.BlueGradient {
+	.gradient(@blue, darken(@blue,10%), @blue);	
+}
+.LightGreyGradient {
+	.gradient(#fff, darken(#fff,10%), #fff);
+}
+.GreyGradient {
+	.gradient(#e4e4e4, darken(#e4e4e4,10%), #e4e4e4);
+}
+
+/* ===== Generic Styles ========================================================
+   Author:
+   ========================================================================== */
+a, a:link, a:active, a:visited {
+  text-decoration: none;
+  color:@blue;
+}
+a:hover {
+	color: @pastelblue;
+}
+
+.offline a, .offline a:link, .offline a:active, .offline a:visited {
+	text-decoration: none;
+  color:@turq;
+}
+.offline a:hover {
+	color: @pastelblue;
+}
+
+body {
+	font-family: Verdana, Arial, sans-serif;
+	padding-bottom: 30px;
+	background-image: url(../images/backgroundTile.jpg);
+	background-repeat: repeat;
+}
+
+input, select {
+	font-size: 0.9em;
+	.LightGreyGradient;	
+	border: 1px solid #ccc;
+	padding: 5px;
+	.rounded;
+	&:focus {
+		outline-width: 0;
+	}
+}
+
+label {font-weight: bold;}
+.checkbox, .radio {
+	width: 19px;
+	height: 25px;
+	padding: 0 5px 0 0;
+	background: url('../images/checkbox.png') no-repeat;
+	display: block;
+	clear: left;
+	float: left;
+}
+.radio {
+	background: url('../images/radio.png') no-repeat;
+}
+.select {
+	position: absolute;
+	width: 158px; /* With the padding included, the width is 190 pixels: the actual width of the image. */
+	height: 29px;
+	line-height: 29px;
+	padding: 0 24px 0 8px;
+	background: url('../images/select.png') no-repeat top right;
+	.rounded;
+	overflow: hidden;
+	color: @white;
+	border: 1px solid #ccc;
+}
+select {
+	margin-bottom: 10px;
+}
+.textarea {
+	width: 98%;
+}
+
+/* ===== Button Styles ========================================================
+   Author:
+   ========================================================================== */
+ #content .btnIcon {
+ 	.Button(3px);
+ }
+ 
+ #staticNav .btnTurq, #staticNav .btnTurqRI {
+ 	.Button;
+	display: inline-block;
+ }  
+
+ #content .btnTurq,  #content .btnBlue,  #content .btnTurqRI {
+ 	.Button(6px);
+ }
+
+.btnIcon {
+	.TurqGradient;
+	.rounded;
+	color: #fff;
+	a, span {
+		color: #fff;
+		&:hover {
+			color: darken(#fff, 10%);
+		}
+	}
+}
+
+.btnTurq {
+	.TurqGradient;
+	.rounded;
+	color: #fff;
+	a, span {
+		color: #fff;
+		&:hover {
+			color: darken(#fff, 10%);
+		}
+	}
+}
+.btnTurqRI {
+	.TurqRIGradient;
+	.rounded;
+	color: @turq !important;
+	a, span {
+		color: @turq;
+		&:hover {
+			color: darken(@turq, 10%);
+		}
+	}
+}
+.btnBlue {
+	.BlueGradient;
+	.rounded;
+	color: #fff !important;
+	a, span {
+		color: #fff !important;
+		&:hover {
+			color: darken(#fff, 10%) !important;
+		}
+	}
+}
+.btnGrey {
+	.Button;
+	.rounded;
+	background-color: #999999;
+	color: #fff;
+	a, span {
+		color: #fff !important;
+		&:hover {
+			color: darken(#fff, 10%) !important;
+		}
+	}
+}
+
+.homeBtn {
+	background: url('../images/iconHome.png') no-repeat left center;
+	padding: 10px 0 10px 29px;
+}
+.userBtn {
+	background: url('../images/iconUser.png') no-repeat left center;
+	padding: 10px 0 10px 29px;
+}
+.checkBtn {
+	background: url('../images/iconCheck.png') no-repeat left center;
+	padding: 10px 0 10px 29px;
+}
+.toolBtn {
+	background: url('../images/iconTool.png') no-repeat left center;
+	padding: 10px 0 10px 29px;
+}
+.helpBtn {
+	background: url('../images/iconHelp.png') no-repeat left center;
+	padding: 10px 0 10px 29px;
+}
+.loginBtn {
+  background: url('../images/iconHello.png') no-repeat left center;
+  padding: 10px 0 10px 29px;
+}
+.resourceBtn {
+  background: url('../images/iconCamera.png') no-repeat left center;
+  padding: 10px 0 10px 29px;
+}
+.svenskaBtn {
+  background: url('../images/iconViking.png') no-repeat left center;
+  padding: 10px 0 10px 29px;
+}
+.plusBtn {
+	background: url('../images/iconPlus.png') no-repeat left center;
+	padding: 10px 0 10px 24px;
+}
+.minusBtn {
+	background: url('../images/iconMinus.png') no-repeat left center;
+	padding: 10px 0 10px 24px;
+}
+.showBtn {
+	background: url('../images/iconPlusWhiteSquare.png') no-repeat right center;
+	padding: 10px 36px 10px 0px;
+}
+.hideBtn {
+	background: url('../images/iconMinusWhiteSquare.png') no-repeat right center;
+	padding: 10px 36px 10px 0px;
+}
+
+/* ===== Page Styles ========================================================
+   Author:
+   ========================================================================== */
+#loginBar {
+	text-align: right;
+	background-color: @black;
+	color: #fff;
+	padding: 0 30px;
+	.VerticalAlign(35px);
+	span {
+		background: url('../images/loginBarLine.gif') no-repeat right center;
+		padding-right: 15px;
+	}
+	a {
+		color: #fff;
+		font-weight: bold;
+		padding-left: 10px;
+		.RightArrowWhite;
+	}
+}
+#logoutBar {
+  text-align: right;
+  background-color: @grey;
+  color: #fff;
+  padding: 0 30px;
+  .VerticalAlign(35px);
+}
+#declinedIndicator {
+  color: @red;
+  .VerticalAlign(35px);
+}
+
+#wrapper {
+	.CenterMe(960px);
+}
+
+.searchBar {
+  text-align:left;
+	color: @white;
+}
+
+header {
+		h1 {
+			.ir;
+			background: url('../images/logo.png') no-repeat center center;
+			width: 334px;
+			height: 121px;
+			padding-bottom: 4px;
+		}	
+		nav {
+			ul li{
+				display: inline;
+			}	
+		}
+		#staticNav {
+			float: left;
+			width: 90%;
+		}
+		#assetsNav {
+			float: right;
+			width: 30%;
+			.assetsNavTitle {
+				background-color: @grey;
+				.border-radius(0,0,@defaultRadius,@defaultRadius);
+				float: left;
+				width: 35%;
+				padding: 10px;
+			}
+			nav {
+				float: left;
+				width: 59%;
+				.TurqGradient;
+				.border-radius(@defaultRadius,@defaultRadius,0,0);
+				ul {
+					padding: 10px 0;
+					li:last-of-type a { border: 0px; }
+					a {
+						cursor: pointer;
+						padding: 10px;
+						border-right: 1px solid #db759b;
+						color: #fff;
+						&:hover {
+							color: darken(#fff, 5%);
+						}						
+					}
+				}
+
+			}
+		}
+}
+
+footer {
+  text-align:center;
+  margin-top:18px;
+  color:#b2b2b2;
+}
+
+.filterSectionDefn (@borderLeft: none) {
+	float: left;
+	width: 22%;
+	border-left: @borderLeft;
+	padding: 5px 10px 22px 17px;
+	label {
+		display: block;
+		padding-bottom: 10px;
+	}
+}
+		
+#filter {
+	padding: 20px 0;
+	#search {
+		.border-radius(@defaultRadius,@defaultRadius,@defaultRadius,@defaultRadius);
+		.TurqGradient;
+		border-bottom: 1px solid @turq;
+		padding: 10px;
+		text-align: left;
+		.searchInput {
+			.rounded(30px);
+			border: 0px;
+			width: 90%;
+			padding: 5px;
+		}
+		.searchInputSubmit {
+			background: none;
+			border: 0px;
+			color: #fff;
+		}
+	}
+}
+
+#breadcrumbs {
+	ul {
+		padding-top: 20px;
+	}
+	ul li {
+		display: inline;
+		background: url('../images/breadcrumbArrow.gif') no-repeat center right;
+		padding-right: 20px;
+		a {
+			color: @white;
+		}
+	}
+}
+
+.lastGenerated {
+	color: #666666;
+	font-size: 0.9em;
+}
+
+.tableHeaderRow {
+	.border-radius(@defaultRadius,0,0,@defaultRadius);
+	.GreyGradient;
+	height: 40px;
+	padding: 0 10px;
+	line-height: 40px;
+	border-bottom: 1px solid #e9e9e9;
+}
+.formHeaderRow {
+	.tableHeaderRow;
+	.border-radius(@defaultRadius,@defaultRadius,@defaultRadius,@defaultRadius);
+}
+
+#contentTable {
+	border-top: 1px solid #a8a8a8;
+	thead tr {		
+		.gradient(@grey, darken(@grey,5%), @grey);
+		th {
+			border-right: 1px solid #fff;
+			text-align: left;
+			border-collapse: separate !important;
+		}
+	}
+	td, th {		
+		padding: 10px;
+	}
+	td {
+		.LightGreyGradient;
+		border-right: 1px solid #cccccc;
+		border-bottom: 1px solid #fff;
+		border-top: 1px solid #cccccc;
+	}
+} 
+
+.formColours td {
+	border: 0px !important;
+}
+
+.bgGrey1 {
+	background: #f9f9f9 no-repeat !important;
+}
+.bgGrey2 {
+	background: #f3f3f3 no-repeat !important;
+}
+.bgGrey3 {
+	background: #dedede no-repeat !important;
+}
+.bgGrey4 {
+	background: #d5d5d5 no-repeat !important;
+}
+.nestedTables td { 
+	/*.bgGrey1; */
+	font-size: 0.95em;
+	padding: 5px !important;
+}
+.nestedTableHeader {padding: 10px; margin-top: 20px; background-color: #dedede;}
+
+.nestedTable {border: 1px solid #ccc !important; padding: 10px; .rounded;}
+
+.mceToolbar td, .mceLayout td{ padding: 0px !important;}
+.mceToolbar td {border: 0px !important;}
+
+.emphatic {
+	color: @red;
+	font-weight:bold;
+}
+
+.page_selected {
+	color: @turq;
+	font-weight:bold;	
+	background-color: @grey;
+}
+
+.help {
+	color:#a2a2a2;
+}
+
+#globalnav {
+  font-family: helvetica,sans-serif;
+  position:relative;
+  float:left;
+  width:100%;
+  padding:0 0 0.6em 1em;
+  margin:0;
+  list-style:none;
+  line-height:1em;
+}
+#globalnav LI {
+  float:left;
+  margin:0;
+  padding:0;
+}
+#globalnav A {
+  display:block;
+  color:@white;
+  text-decoration:none;
+  font-weight:bold;
+  background:@turq;
+  margin:0;
+  padding:0.25em 0.8em;
+  border-left:1px solid #fff;
+  border-top:1px solid #fff;
+  border-right:1px solid #aaa;
+}
+#globalnav A:active,
+#globalnav A:hover {
+  background:@blue;
+}
+#globalnav A.here:link,
+#globalnav A.here:visited {
+  color:@turq;
+  background:@white;
+}
+#globalnav A.here:link,
+#globalnav A.here:visited {
+  position:relative;
+  z-index:102;
+}
+/*subnav*/
+#globalnav UL {
+  position:absolute;
+  left:0;
+  top:1.5em;
+  float:left;
+  background:#fff;
+  width:97%;
+  margin:0;
+  padding:0.25em 0.25em 0em 1em;
+  list-style:none;
+  border-top:1px solid #fff;
+}
+#globalnav UL LI {
+  float:left;
+  display:block;
+  margin-top:1px;
+}
+#globalnav UL A {
+  background:#bbb;
+  color:@turq;
+  display:inline;
+  margin:0;
+  padding:0 1em;
+  border:0
+}
+#globalnav UL A:hover,
+#globalnav UL A:active,
+#globalnav UL A.here:link,
+#globalnav UL A.here:visited {
+  color:#444;
+}
+.headerTextBlack {
+  font-size:1.2em;
+  font-weight:bold;
+  color: @black;
+}
+.textTurq {
+  color: @turq;
+}
+.caption {
+  color: @turq;
+}
+#tooltip {
+  position: absolute;
+  z-index: 3000;
+  border: 1px solid #111;
+  background-color: #eee;
+  padding: 5px;
+  opacity: 0.85;
+}
+#tooltip h3, #tooltip div { margin: 0; }
+@import "media-queries.less";
+@import "helpers.less";
+@import "print.less";
